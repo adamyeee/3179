@@ -1,0 +1,50 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 550,
+  "title": "Government Funded Public EV Chargers in Victoria (2024)",
+  "layer": [
+    {
+      "data": {
+        "url": "js/Localities.json",
+        "format": { "type": "topojson", "feature": "ne_110m_land" }
+      },
+      "mark": { "type": "geoshape", "fill": "#e2e2e2", "stroke": "white", "strokeWidth": 0.5 }
+    },
+    {
+      "data": {
+        "url": "js/Localities.json",
+        "format": { "type": "topojson", "feature": "ne_10m_ocean" }
+      },
+      "mark": { "type": "geoshape", "fill": "#d9f1f8", "stroke": "white", "strokeWidth": 0.5 }
+    },
+    {
+      "data": {
+        "url": "js/Localities.json",
+        "format": { "type": "topojson", "feature": "vic_localities" }
+      },
+      "mark": { "type": "geoshape", "fill": "#e2e2e2", "stroke": "#606060", "strokeWidth": 0.3 }
+    },
+    {
+      "data": {
+        "url": "data/chargers.csv"
+      },
+      "mark": { "type": "circle", "color": "red", "tooltip": [], "size": 60 },
+      "encoding": {
+        "longitude": { "field": "LONGITUDE", "type": "quantitative" },
+        "latitude": { "field": "LATITUDE", "type": "quantitative" },
+        "color": {
+          "field": "NUMBER_OF_",
+          "type": "quantitative",
+          "title": "Number of chargers at location",
+          "scale": { "scheme": "reds", "type": "ordinal", "domain": [1, 2, 3, 4, 5, 6] }
+        },
+        "tooltip": [
+          { "field": "ADDRESS", "type": "nominal", "title": "Address" },
+          { "field": "PLUG_TYPE", "type": "nominal", "title": "Plug Type" },
+          { "field": "NUMBER_OF_", "type": "nominal", "title": "Number of Chargers" }
+        ]
+      }
+    }
+  ]
+}
