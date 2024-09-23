@@ -37,7 +37,7 @@
           "field": "NUMBER_OF_",
           "type": "quantitative",
           "title": "Number of chargers at location",
-          "scale": { "domain": [1, 6], "range": [60, 250] }
+          "scale": { "domain": [1, 6], "range": [40, 250] }
         },
         "tooltip": [
           { "field": "ADDRESS", "type": "nominal", "title": "Address" },
