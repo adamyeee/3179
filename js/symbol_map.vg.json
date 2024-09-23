@@ -33,11 +33,11 @@
       "encoding": {
         "longitude": { "field": "LONGITUDE", "type": "quantitative" },
         "latitude": { "field": "LATITUDE", "type": "quantitative" },
-        "color": {
+        "size": {
           "field": "NUMBER_OF_",
           "type": "quantitative",
           "title": "Number of chargers at location",
-          "scale": { "scheme": "reds", "type": "ordinal", "domain": [1, 2, 3, 4, 5, 6] }
+          "scale": { "domain": [1, 6], "range": [60, 200] }
         },
         "tooltip": [
           { "field": "ADDRESS", "type": "nominal", "title": "Address" },
