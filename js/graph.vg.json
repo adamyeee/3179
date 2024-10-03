@@ -1,0 +1,99 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 1000,
+  "height": 650,
+  "title": "Correlation Between Median Age and Fertility Rate",
+  "data": { "url": "data/population.csv" },
+  "params": [
+    {
+      "name": "Continent_selection",
+      "bind": {
+        "input": "select",
+        "options": [null, "North America", "South America", "Europe", "Africa", "Asia", "Oceania"],
+        "labels": ["Show All", "North America", "South America", "Europe", "Africa", "Asia", "Oceania"],
+        "name": "Continent Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum['Med Age'] != 'N/A' && datum['Fert Rate'] != 'N/A'"
+    },
+    {
+      "filter": "Continent_selection == null || datum.Continent == Continent_selection"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Med Age",
+      "type": "quantitative",
+      "title": "Median Age",
+      "scale": {
+        "domain": [14, 50]
+      },
+      "axis": {
+        "tickCount": 7
+      }
+    },
+    "y": {
+      "field": "Fert Rate",
+      "type": "quantitative",
+      "title": "Fertility Rate",
+      "scale": { "domain": [1, 7] },
+      "axis": { "tickCount": 7 }
+    }
+  },
+  "layer": [
+    {
+      "mark": { "type": "circle", "color": "red", "size": 100 },
+      "encoding": {
+        "color": {
+          "type": "nominal",
+          "field": "Continent",
+          "scale": {
+            "domain": ["North America", "South America", "Europe", "Africa", "Asia", "Oceania"],
+            "range": ["#e41a1c", "#984ea3", "#ff7f00", "#a6cee3", "#9dc183", "#a65628"]
+          }
+        },
+        "tooltip": [
+          { "field": "Continent", "type": "nominal", "title": "Continent" },
+          { "field": "Country", "type": "nominal", "title": "Country" },
+          { "field": "Med Age", "type": "quantitative", "title": "Median Age" }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": { "field": "Country", "type": "nominal" },
+        "color": { "value": "black" },
+        "opacity": {
+          "condition": {
+            "test": "datum['Country'] == 'Niger' || datum['Country'] == 'Australia' || datum['Country'] == 'United States' || datum['Country'] == 'Japan' || datum['Country'] == 'Nepal'",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          { "field": "Country", "type": "nominal" },
+          { "field": "Confirmed", "type": "quantitative", "format": "," },
+          { "field": "Active", "type": "quantitative", "format": "," },
+          { "field": "Deaths", "type": "quantitative", "format": "," },
+          { "field": "Recovered", "type": "quantitative", "format": "," },
+          {
+            "field": "Cases per 10,000 Population",
+            "type": "quantitative",
+            "format": ".2f"
+          }
+        ]
+      }
+    }
+  ]
+}
