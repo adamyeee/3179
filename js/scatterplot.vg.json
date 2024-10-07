@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 1000,
-  "height": 650,
-  "title": "Correlation Between Median Age and Fertility Rate",
+  "width": 950,
+  "height": 450,
+  "title": "Correlation Between Median Age and Fertility Rate (2020)",
   "data": { "url": "data/population.csv" },
   "params": [
     {
@@ -45,7 +45,7 @@
   },
   "layer": [
     {
-      "mark": { "type": "circle", "color": "red", "size": 100 },
+      "mark": { "type": "circle", "color": "red", "size": 100, "opacity": 0.6 },
       "encoding": {
         "color": {
           "type": "nominal",
@@ -58,7 +58,8 @@
         "tooltip": [
           { "field": "Continent", "type": "nominal", "title": "Continent" },
           { "field": "Country", "type": "nominal", "title": "Country" },
-          { "field": "Med Age", "type": "quantitative", "title": "Median Age" }
+          { "field": "Med Age", "type": "quantitative", "title": "Median Age" },
+          { "field": "Fert Rate", "type": "quantitative", "title": "Fertility Rate" }
         ]
       }
     },
@@ -82,16 +83,10 @@
           "value": 0
         },
         "tooltip": [
-          { "field": "Country", "type": "nominal" },
-          { "field": "Confirmed", "type": "quantitative", "format": "," },
-          { "field": "Active", "type": "quantitative", "format": "," },
-          { "field": "Deaths", "type": "quantitative", "format": "," },
-          { "field": "Recovered", "type": "quantitative", "format": "," },
-          {
-            "field": "Cases per 10,000 Population",
-            "type": "quantitative",
-            "format": ".2f"
-          }
+          { "field": "Continent", "type": "nominal", "title": "Continent" },
+          { "field": "Country", "type": "nominal", "title": "Country" },
+          { "field": "Med Age", "type": "quantitative", "title": "Median Age" },
+          { "field": "Fert Rate", "type": "quantitative", "title": "Fertility Rate" }
         ]
       }
     }

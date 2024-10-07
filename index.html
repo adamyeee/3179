@@ -7,26 +7,35 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
     <!-- CSS file -->
     <link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
   </head>
   <body>
-    <div class="m-8 flex flex-col gap-8 items-start">
-      <h1 style="font-size: 32px; width: 100%; text-align: center; margin-bottom: 32px;">Global Population Overview</h1>
-        <div id="population_map" class="w-fit"></div>
+    <div class="m-8 flex flex-col gap-8 items-center">
+      <h1 style="font-size: 32px; margin-bottom: 32px">Global Population Overview</h1>
+      <div id="world_share"></div>
+      <div id="population_map"></div>
       <div id="graph"></div>
     </div>
 
     <script type="text/javascript">
-      var spec2 = "js/population_map.vg.json";
-      vegaEmbed("#population_map", spec2)
+      vegaEmbed("#world_share", "js/world_share.vg.json")
         .then(function (result) {
           // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         })
         .catch(console.error);
 
-      var spec2 = "js/graph.vg.json";
-      vegaEmbed("#graph", spec2)
+      vegaEmbed("#population_map", "js/population_map.vg.json")
+        .then(function (result) {
+          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        })
+        .catch(console.error);
+
+      vegaEmbed("#graph", "js/scatterplot.vg.json")
         .then(function (result) {
           // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         })

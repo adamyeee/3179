@@ -1,0 +1,45 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 920,
+  "height": 300,
+  "title": "Population by Continent (2020)",
+  "data": { "url": "data/population.csv" },
+  "transform": [
+    {
+      "filter": "datum['Med Age'] != 'N/A' && datum['Fert Rate'] != 'N/A' && datum['Continent'] != 'Antarctica'"
+    },
+    { "aggregate": [{ "op": "sum", "field": "Population", "as": "TotalPopulation" }], "groupby": ["Continent"] }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Continent",
+      "type": "nominal",
+      "title": "Continent",
+      "sort": { "field": "TotalPopulation", "order": "descending" }
+    },
+    "y": {
+      "field": "TotalPopulation",
+      "type": "quantitative",
+      "title": "Total Population"
+    }
+  },
+  "layer": [
+    {
+      "mark": { "type": "bar", "color": "red", "opacity": 0.6 },
+      "encoding": {
+        "color": {
+          "type": "nominal",
+          "field": "Continent",
+          "scale": {
+            "domain": ["North America", "South America", "Europe", "Africa", "Asia", "Oceania"],
+            "range": ["#e41a1c", "#984ea3", "#ff7f00", "#a6cee3", "#9dc183", "#a65628"]
+          }
+        },
+        "tooltip": [
+          { "field": "Continent", "type": "nominal", "title": "Continent" },
+          { "field": "TotalPopulation", "type": "quantitative", "title": "Total Population", "format": "~s" }
+        ]
+      }
+    }
+  ]
+}
