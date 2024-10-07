@@ -25,7 +25,7 @@
   },
   "layer": [
     {
-      "mark": { "type": "bar", "color": "red", "opacity": 0.6 },
+      "mark": { "type": "bar", "color": "red", "opacity": 1 },
       "encoding": {
         "color": {
           "type": "nominal",
