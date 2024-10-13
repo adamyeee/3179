@@ -4,7 +4,7 @@
   "width": "container",
   "height": 515,
   "padding": 20,
-  "title": { "text": "Population Density by Country (2020)", "fontSize": 18, "color": "#2a363b" },
+  "title": { "text": "Population Density by Country (2020)", "fontSize": 20, "color": "#2a363b" },
   "projection": { "type": "equirectangular" },
   "layer": [
     {
@@ -48,7 +48,6 @@
           "type": "quantitative",
           "scale": {
             "type": "log",
-
             "range": ["#fff7ec", "#fcd59e", "#fc8e59", "#d7301f", "#b3010", "#7f0000"],
             "bins": [1, 5, 20, 100, 4000]
           }

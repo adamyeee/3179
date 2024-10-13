@@ -23,33 +23,38 @@
   </head>
   <body>
     <div class="mx-8 mb-8 gap-4 items-center flex flex-col items-stretch mx-auto" style="width: 75%">
-      <h1 class="text-center text-5xl mt-8 py-4 font-bold" style="font-family: 'Alegreya', sans-serif">
+      <h1 class="text-center text-5xl mt-8 pt-4 font-bold" style="font-family: 'Alegreya', sans-serif">
         Global Population Overview
       </h1>
+      <p class="text-2xl" style="text-align: center; margin-bottom: 32px; font-family: 'Alegreya, sans-serif';">A breakdown of global population and key indicators of future growth</p>
+
       <div class="flex gap-3">
         <p class="infobox blue">The global population exceeds 8 billion</p>
         <p class="infobox blue">Asia has the largest population by far</p>
         <p class="infobox blue">Africa and Europe are in the middle</p>
         <p class="infobox blue">NA and Oceania have smaller populations</p>
       </div>
-
       <div id="world_share" class="shadow-lg rounded-2xl overflow-hidden mb-8"></div>
-      <div class="flex gap-3">
-        <p class="infobox pink">This data does not consider mortality rates</p>
-        <p class="infobox pink">China and India have the highest birth rates</p>
-        <p class="infobox pink">US and Germany are growing rapidly due to migrants</p>
-      </div>
-      <div id="yearly_change" class="shadow-lg rounded-2xl overflow-hidden mb-8"></div>
+
       <div class="flex gap-3">
         <p class="infobox yellow">Monaco and Singapore have high densities due to their limited land area and large populations</p>
         <p class="infobox yellow">Canada and Australia have low population densities due to vast land areas and
           relatively smaller populations</p>
       </div>
       <div id="population_map" class="shadow-lg rounded-2xl overflow-hidden mb-8"></div>
+      
+
+      <div class="flex gap-3">
+        <p class="infobox pink">This data does not consider mortality rates</p>
+        <p class="infobox pink">China and India have the highest birth rates</p>
+        <p class="infobox pink">US and Germany are growing rapidly due to migrants</p>
+      </div>
+      <div id="yearly_change" class="shadow-lg rounded-2xl overflow-hidden mb-8"></div>
+      
       <div class="flex gap-3">
         <p class="infobox purple">Median age and fertility rate are strongly correlated</p>
         <p class="infobox purple">Median age is a reliable predictor of future population growth</p>
-        <p class="infobox purple">Australia has a relatively low fertility rate and a slower population growth</p>
+        <p class="infobox purple">Niger has an exceptionally high fertility rate and a low median age</p>
       </div>
       <div id="graph" class="shadow-lg rounded-2xl overflow-hidden bg-white pb-2 pl-2"></div>
     </div>

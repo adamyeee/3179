@@ -3,7 +3,7 @@
   "width": "container",
   "height": 450,
   "padding": 20,
-  "title": { "text": "Top 10 Fastest Growing Countries (2020)", "fontSize": 18, "color": "#2a363b" },
+  "title": { "text": "Top 10 Fastest Growing Countries (2020)", "fontSize": 20, "color": "#2a363b" },
   "data": { "url": "data/population.csv" },
   "transform": [
     { "filter": "datum['Population'] != 'N/A' && datum['Fert Rate'] != 'N/A' && datum.Migrants != 'N/A'" },
@@ -38,13 +38,13 @@
       {
         "field": "Births",
         "type": "quantitative",
-        "title": "Births",
+        "title": "Births per Year",
         "format": "s"
       },
       {
         "field": "Migrants",
         "type": "quantitative",
-        "title": "Migrants",
+        "title": "Migrants per Year",
         "format": "s"
       }
     ]

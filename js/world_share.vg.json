@@ -3,7 +3,7 @@
   "width": "container",
   "height": 300,
   "padding": 20,
-  "title": { "text": "Population by Continent (2020)", "fontSize": 18, "color": "#2a363b" },
+  "title": { "text": "Population by Continent (2020)", "fontSize": 20, "color": "#2a363b" },
   "data": { "url": "data/population.csv" },
   "transform": [
     {

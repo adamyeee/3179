@@ -3,7 +3,7 @@
   "width": "container",
   "height": 450,
   "padding": 20,
-  "title": { "text": "Correlation Between Median Age and Fertility Rate (2020)", "fontSize": 18, "color": "#2a363b" },
+  "title": { "text": "Correlation Between Median Age and Fertility Rate (2020)", "fontSize": 20, "color": "#2a363b" },
   "data": { "url": "data/population.csv" },
   "params": [
     {
@@ -46,25 +46,6 @@
   },
   "layer": [
     {
-      "mark": { "type": "circle", "size": 100, "opacity": 1 },
-      "encoding": {
-        "color": {
-          "type": "nominal",
-          "field": "Continent",
-          "scale": {
-            "domain": ["North America", "South America", "Europe", "Africa", "Asia", "Oceania"],
-            "range": ["#e41a1c", "#984ea3", "#ff7f00", "#a6cee3", "#9dc183", "#a65628"]
-          }
-        },
-        "tooltip": [
-          { "field": "Continent", "type": "nominal", "title": "Continent" },
-          { "field": "Country", "type": "nominal", "title": "Country" },
-          { "field": "Med Age", "type": "quantitative", "title": "Median Age" },
-          { "field": "Fert Rate", "type": "quantitative", "title": "Fertility Rate" }
-        ]
-      }
-    },
-    {
       "mark": {
         "type": "text",
         "align": "right",
@@ -78,16 +59,49 @@
         "color": { "value": "black" },
         "opacity": {
           "condition": {
-            "test": "datum['Country'] == 'Niger' || datum['Country'] == 'Australia' || datum['Country'] == 'United States' || datum['Country'] == 'Japan' || datum['Country'] == 'Nepal'",
+            "test": "datum['Country'] == 'Niger' || datum['Country'] == 'United States' || datum['Country'] == 'Japan' || datum['Country'] == 'Nepal'",
             "value": 1
-          },  
+          },
           "value": 0
+        }
+      }
+    },
+    {
+      "mark": { "type": "circle", "opacity": 1 },
+      "encoding": {
+        "color": {
+          "type": "nominal",
+          "field": "Continent",
+          "scale": {
+            "domain": ["North America", "South America", "Europe", "Africa", "Asia", "Oceania"],
+            "range": ["#e41a1c", "#984ea3", "#ff7f00", "#a6cee3", "#9dc183", "#a65628"]
+          }
+        },
+        "size": {
+          "field": "Yearly Change",
+          "type": "quantitative",
+          "condition": [
+            {
+              "test": "datum['Yearly Change'] >= 0",
+              "value": 75
+            },
+            {
+              "test": "datum['Yearly Change'] < 0",
+              "value": 40
+            }
+          ],
+          "bin": { "maxbins": 4 },
+          "legend": {
+            "values": [0],
+            "title": "Population Growth (%)"
+          }
         },
         "tooltip": [
           { "field": "Continent", "type": "nominal", "title": "Continent" },
           { "field": "Country", "type": "nominal", "title": "Country" },
           { "field": "Med Age", "type": "quantitative", "title": "Median Age" },
-          { "field": "Fert Rate", "type": "quantitative", "title": "Fertility Rate" }
+          { "field": "Fert Rate", "type": "quantitative", "title": "Fertility Rate (%)" },
+          { "field": "Yearly Change", "type": "quantitative", "title": "Population Growth (%)" }
         ]
       }
     }
