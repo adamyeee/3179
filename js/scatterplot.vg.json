@@ -1,8 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 950,
+  "width": "container",
   "height": 450,
-  "title": "Correlation Between Median Age and Fertility Rate (2020)",
+  "padding": 20,
+  "title": { "text": "Correlation Between Median Age and Fertility Rate (2020)", "fontSize": 18, "color": "#2a363b" },
   "data": { "url": "data/population.csv" },
   "params": [
     {
@@ -29,7 +30,7 @@
       "type": "quantitative",
       "title": "Median Age",
       "scale": {
-        "domain": [14, 50]
+        "domain": [12, 50]
       },
       "axis": {
         "tickCount": 7
@@ -45,7 +46,7 @@
   },
   "layer": [
     {
-      "mark": { "type": "circle", "color": "red", "size": 100, "opacity": 0.6 },
+      "mark": { "type": "circle", "size": 100, "opacity": 1 },
       "encoding": {
         "color": {
           "type": "nominal",
@@ -79,7 +80,7 @@
           "condition": {
             "test": "datum['Country'] == 'Niger' || datum['Country'] == 'Australia' || datum['Country'] == 'United States' || datum['Country'] == 'Japan' || datum['Country'] == 'Nepal'",
             "value": 1
-          },
+          },  
           "value": 0
         },
         "tooltip": [

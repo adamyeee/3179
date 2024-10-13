@@ -7,36 +7,69 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Lobster&display=swap" rel="stylesheet">
+
 
     <!-- CSS file -->
     <link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
   </head>
   <body>
-    <div class="m-8 flex flex-col gap-8 items-center">
-      <h1 style="font-size: 32px; margin-bottom: 32px">Global Population Overview</h1>
-      <p>As of recent estimates, the global population exceeds 8 billion, with a yearly growth rate of about 0.8%. Certain regions, particularly in Africa and Asia, experience higher population growth rates due to higher fertility rates and lower median ages.</p>
-      <div id="world_share"></div>
-      <div id="population_map"></div>
-      <div id="graph"></div>
+    <div class="mx-8 mb-8 gap-4 items-center flex flex-col items-stretch mx-auto" style="width: 75%">
+      <h1 class="text-center text-5xl mt-8 py-4 font-bold" style="font-family: 'Alegreya', sans-serif;">Global Population Overview</h1>
+      <p>
+        As of recent estimates, the global population exceeds 8 billion. In terms of population distribution across
+        continents, Asia holds the largest share of the world’s population by far, followed by Africa and Europe. Other
+        continents, like North America and Oceania, have comparatively smaller populations.
+      </p>
+
+      <div id="world_share" class="shadow-lg rounded-2xl overflow-hidden mb-8"></div>
+      <p>
+        Not considering mortality rate, China and India have the highest amount of births, due to their large
+        population. United States and Germany are also growing rapidly, due to large amount of migrants entering.
+      </p>
+      <div id="yearly_change" class="shadow-lg rounded-2xl overflow-hidden mb-8"></div>
+      <p>
+        Population density varies widely by country, with some nations like Monaco and Singapore exhibiting
+        exceptionally high densities due to their limited land area and large populations. In contrast, countries such
+        as Canada and Australia have low population densities, largely attributable to their vast land areas and
+        relatively smaller populations.
+      </p>
+      <div id="population_map" class="shadow-lg rounded-2xl overflow-hidden mb-8"></div>
+      <p>
+        The correlation between median age and fertility rate is significant, as countries with higher median ages
+        typically experience lower fertility rates, which can lead to slower population growth. This relationship is
+        crucial, as an aging population combined with declining birth rates may result
+        in a shrinking workforce and increased pressure on social services.
+      </p>
+      <div id="graph" class="shadow-lg rounded-2xl overflow-hidden bg-white pb-2 pl-2"></div>
     </div>
 
     <script type="text/javascript">
-      vegaEmbed("#world_share", "js/world_share.vg.json")
+      vegaEmbed("#world_share", "js/world_share.vg.json", { actions: false })
         .then(function (result) {
           // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         })
         .catch(console.error);
 
-      vegaEmbed("#population_map", "js/population_map.vg.json")
+      vegaEmbed("#population_map", "js/population_map.vg.json", { actions: false })
         .then(function (result) {
           // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         })
         .catch(console.error);
 
-      vegaEmbed("#graph", "js/scatterplot.vg.json")
+      vegaEmbed("#graph", "js/scatterplot.vg.json", { actions: false })
+        .then(function (result) {
+          // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        })
+        .catch(console.error);
+
+      vegaEmbed("#yearly_change", "js/yearly_change.vg.json", { actions: false })
         .then(function (result) {
           // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         })

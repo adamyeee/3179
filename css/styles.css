@@ -1,12 +1,11 @@
 * {
 	font-family: 'Montserrat', sans-serif;
+	color: #171e20;
+}
+body {
+	background-color: #ededed;
 }
 
-#symbol_map {
-	top:100px;
-	bottom: 100px; 
-	left: 100px;
-	right: 100px;
-	/*height: 1000px;
-	width: 800px;*/
+grid-text {
+	width: 100px;
 }

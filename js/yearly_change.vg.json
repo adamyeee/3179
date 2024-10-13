@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 450,
+  "padding": 20,
+  "title": { "text": "Top 10 Fastest Growing Countries (2020)", "fontSize": 18, "color": "#2a363b" },
+  "data": { "url": "data/population.csv" },
+  "transform": [
+    { "filter": "datum['Population'] != 'N/A' && datum['Fert Rate'] != 'N/A' && datum.Migrants != 'N/A'" },
+    { "calculate": "datum['Fert Rate'] * datum['Population'] / 1000", "as": "Births" },
+    {
+      "filter": "datum['Country'] == 'China' || datum['Country'] == 'United States of America' || datum['Country'] == 'India' || datum['Country'] == 'Nigeria' || datum['Country'] == 'Germany' || datum['Country'] == 'Pakistan' || datum['Country'] == 'Dem. Rep. Congo' || datum['Country'] == 'Indonesia' || datum['Country'] == 'Ethiopia' || datum['Country'] == 'Turkey'"
+    },
+    { "fold": ["Migrants", "Births"], "as": ["Growth Type", "Value"] }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Country",
+      "type": "ordinal",
+      "title": "Country",
+      "sort": { "field": "TotalGrowth", "order": "descending" }
+    },
+    "y": {
+      "field": "Value",
+      "type": "quantitative",
+      "title": "Yearly Growth"
+    },
+    "color": { "field": "Growth Type", "type": "nominal" },
+    "tooltip": [
+      {
+        "field": "Country",
+        "type": "nominal",
+        "title": "Country"
+      },
+      {
+        "field": "Births",
+        "type": "quantitative",
+        "title": "Births",
+        "format": "s"
+      },
+      {
+        "field": "Migrants",
+        "type": "quantitative",
+        "title": "Migrants",
+        "format": "s"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": "bar"
+    }
+  ]
+}

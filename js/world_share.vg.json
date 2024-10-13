@@ -1,26 +1,30 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 920,
+  "width": "container",
   "height": 300,
-  "title": "Population by Continent (2020)",
+  "padding": 20,
+  "title": { "text": "Population by Continent (2020)", "fontSize": 18, "color": "#2a363b" },
   "data": { "url": "data/population.csv" },
   "transform": [
     {
       "filter": "datum['Med Age'] != 'N/A' && datum['Fert Rate'] != 'N/A' && datum['Continent'] != 'Antarctica'"
     },
-    { "aggregate": [{ "op": "sum", "field": "Population", "as": "TotalPopulation" }], "groupby": ["Continent"] }
+    { "aggregate": [{ "op": "sum", "field": "Population", "as": "TotalPopulation" }], "groupby": ["Continent"] },
+    { "calculate": "datum.TotalPopulation / 1000000", "as": "TotalPopulation_Millions" },
+    { "calculate": "datum.TotalPopulation / 7980459704", "as": "PopulationPercentage" }
   ],
   "encoding": {
     "x": {
       "field": "Continent",
       "type": "nominal",
       "title": "Continent",
-      "sort": { "field": "TotalPopulation", "order": "descending" }
+      "sort": { "field": "TotalPopulation", "order": "descending" },
+      "axis": { "labelAngle": -45 }
     },
     "y": {
-      "field": "TotalPopulation",
+      "field": "TotalPopulation_Millions",
       "type": "quantitative",
-      "title": "Total Population"
+      "title": "Total Population (M)"
     }
   },
   "layer": [
@@ -37,7 +41,13 @@
         },
         "tooltip": [
           { "field": "Continent", "type": "nominal", "title": "Continent" },
-          { "field": "TotalPopulation", "type": "quantitative", "title": "Total Population", "format": "~s" }
+          {
+            "field": "TotalPopulation_Millions",
+            "type": "quantitative",
+            "title": "Total Population (M)",
+            "format": ".0f"
+          },
+          { "field": "PopulationPercentage", "type": "quantitative", "title": "Global Percentage", "format": ".0%" }
         ]
       }
     }
