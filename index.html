@@ -13,40 +13,44 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Lobster&display=swap" rel="stylesheet">
-
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Lobster&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- CSS file -->
     <link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
   </head>
   <body>
     <div class="mx-8 mb-8 gap-4 items-center flex flex-col items-stretch mx-auto" style="width: 75%">
-      <h1 class="text-center text-5xl mt-8 py-4 font-bold" style="font-family: 'Alegreya', sans-serif;">Global Population Overview</h1>
-      <p>
-        As of recent estimates, the global population exceeds 8 billion. In terms of population distribution across
-        continents, Asia holds the largest share of the world’s population by far, followed by Africa and Europe. Other
-        continents, like North America and Oceania, have comparatively smaller populations.
-      </p>
+      <h1 class="text-center text-5xl mt-8 py-4 font-bold" style="font-family: 'Alegreya', sans-serif">
+        Global Population Overview
+      </h1>
+      <div class="flex gap-3">
+        <p class="infobox blue">The global population exceeds 8 billion</p>
+        <p class="infobox blue">Asia has the largest population by far</p>
+        <p class="infobox blue">Africa and Europe are in the middle</p>
+        <p class="infobox blue">NA and Oceania have smaller populations</p>
+      </div>
 
       <div id="world_share" class="shadow-lg rounded-2xl overflow-hidden mb-8"></div>
-      <p>
-        Not considering mortality rate, China and India have the highest amount of births, due to their large
-        population. United States and Germany are also growing rapidly, due to large amount of migrants entering.
-      </p>
+      <div class="flex gap-3">
+        <p class="infobox pink">This data does not consider mortality rates</p>
+        <p class="infobox pink">China and India have the highest birth rates</p>
+        <p class="infobox pink">US and Germany are growing rapidly due to migrants</p>
+      </div>
       <div id="yearly_change" class="shadow-lg rounded-2xl overflow-hidden mb-8"></div>
-      <p>
-        Population density varies widely by country, with some nations like Monaco and Singapore exhibiting
-        exceptionally high densities due to their limited land area and large populations. In contrast, countries such
-        as Canada and Australia have low population densities, largely attributable to their vast land areas and
-        relatively smaller populations.
-      </p>
+      <div class="flex gap-3">
+        <p class="infobox yellow">Monaco and Singapore have high densities due to their limited land area and large populations</p>
+        <p class="infobox yellow">Canada and Australia have low population densities due to vast land areas and
+          relatively smaller populations</p>
+      </div>
       <div id="population_map" class="shadow-lg rounded-2xl overflow-hidden mb-8"></div>
-      <p>
-        The correlation between median age and fertility rate is significant, as countries with higher median ages
-        typically experience lower fertility rates, which can lead to slower population growth. This relationship is
-        crucial, as an aging population combined with declining birth rates may result
-        in a shrinking workforce and increased pressure on social services.
-      </p>
+      <div class="flex gap-3">
+        <p class="infobox purple">Median age and fertility rate are strongly correlated</p>
+        <p class="infobox purple">Median age is a reliable predictor of future population growth</p>
+        <p class="infobox purple">Australia has a relatively low fertility rate and a slower population growth</p>
+      </div>
       <div id="graph" class="shadow-lg rounded-2xl overflow-hidden bg-white pb-2 pl-2"></div>
     </div>
 

@@ -18,7 +18,10 @@
       "field": "Country",
       "type": "ordinal",
       "title": "Country",
-      "sort": { "field": "TotalGrowth", "order": "descending" }
+      "sort": { "field": "TotalGrowth", "order": "descending" },
+      "axis": {
+        "labelAngle": -45
+      }
     },
     "y": {
       "field": "Value",

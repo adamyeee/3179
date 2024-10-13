@@ -6,6 +6,23 @@ body {
 	background-color: #ededed;
 }
 
-grid-text {
-	width: 100px;
+.infobox {
+	padding: 16px;
+	border-radius: 16px;
+	text-align: center;
+	flex-basis: 0px;
+	flex-grow: 1;
+}
+
+.blue {
+	background-color: #B3EBF2;
+}
+.pink {
+	background-color: #facfcf;
+}
+.yellow {
+	background-color: #f6fac7;
+}
+.purple {
+	background-color: #d3d5ff;
 }
